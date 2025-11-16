@@ -75,15 +75,18 @@ EXEC Reporting.DynamicSalesSummarySecure
     @Category = 'Accessories';
 
 ### Test 2 — Vulnerable Procedure
+```sql
 EXEC Reporting.DynamicSalesSummaryVulnerable
     @Territory = 'Northwest',
     @Category = 'Accessories';
 
 ### Test 3 — SQL Injection Attempt (Should Be Rejected)
+```sql
 EXEC Reporting.DynamicSalesSummarySecure
     @Territory = 'Northwest; DROP TABLE Sales.SalesOrderHeader;--';
 
 ### Test 4 — View the Audit Summary
+```sql
 SELECT * FROM Reporting.DSLAuditSummary;
 
 4. Expected Results
